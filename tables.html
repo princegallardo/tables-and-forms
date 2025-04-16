@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice with Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h2 {
+      padding: 14px 10px;
+      text-align: center;
+      border: 1px solid black;
+      margin-bottom: 0.2px;
+      max-width: 680px;
+      background-color: #443627;
+      color: white;
+    }
+
+    table {
+      width: 700px;
+      border-collapse: collapse;
+      border: 2px solid #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .invoice td, .invoice th {
+      padding: 8px 10px;
+      text-align: left;
+      border: 1px solid black;
+    }
+
+    .header {
+      background-color: #F2F6D0;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-bottom: 0;
+    }
+
+    .sub-header {
+      background-color: #F2F6D0;
+      color: black;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .green-section {
+      background-color: #BDB395;
+    }
+
+    .section-title {
+      font-weight: bold;
+    }
+
+    .items-header {
+      background-color: #F2F6D0;
+      color: black;
+      font-weight: bold;
+    }
+
+    .grand-total {
+      background-color: #F2F6D0;
+      font-size: 1.2em;
+      color: black;
+    }
+
+    .highligted {
+      background-color: #EFDCAB;
+      color: black;
+    }
+
+    /* FORM STYLES */
+    .forms {
+      width: 700px;
+      border: 2px solid #2c3e50;
+      border-collapse: collapse;
+      margin-bottom: 1px;
+      height: 100vh;
+    }
+  
+
+    .forms tr {
+      margin-bottom: 100px;
+      padding: 12px;
+      border: 1px solid #443627;
+    }
+    .forms th, .forms td{
+      padding: 15px;
+    }
+
+    .forms th {
+      background-color: #b2d8e8;
+      color: #002f6c;
+      font-size: 18px;
+    }
+
+    .forms input[type="text"],
+    .forms select {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .forms textarea {
+      resize: vertical;
+      width: 90%;
+      padding: 10px;
+      height: 20vh;
+    }
+
+    .submit-button {
+      width: 700px;
+      text-align: center;
+      padding: 20px;
+      background-color: #443627;
+      border: 2px solid #2c3e50;
+      border-top: none;
+      max-width: 657px;
+    }
+
+    .submit-button button {
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color:#BDB395;;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #443627;
+      font-weight: bold;
+    }
+
+    .submit-button button:hover {
+      background-color: #F2F6D0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Invoice Tabular Data</h2>
+
+  <!-- INVOICE TABLE -->
+  <table class="invoice">
+    <tr>
+      <td colspan="3" class="header">Invoice #12345689</td>
+      <td colspan="1" class="sub-header">14 January 2025</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="green-section">
+        <div class="section-title">Pay to:</div>
+        Acme Billing Co.<br>
+        123 Main St.<br>
+        Cityville, NA 12345
+      </td>
+      <td colspan="2" class="green-section">
+        <div class="section-title">Customer:</div>
+        John Smith<br>
+        321 Willow Way<br>
+        Southeast Northwestershire, MA 54321
+      </td>
+    </tr>
+    <tr class="items-header">
+      <td>Name / Description</td>
+      <td>Qty.</td>
+      <td>@</td>
+      <td>Cost</td>
+    </tr>
+    <tr class="highligted">
+      <td>Paperclips</td>
+      <td>1000</td>
+      <td>0.01</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Staples (box)</td>
+      <td>100</td>
+      <td>1.00</td>
+      <td>$100.00</td>
+    </tr>
+    <tr class="highligted">
+      <td>Bond Paper (box)</td>
+      <td>100</td>
+      <td>1.00</td>
+      <td>$110.00</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;" colspan="3">Subtotal</td>
+      <td>$110.00</td>
+    </tr>
+    <tr class="highligted">
+      <td style="font-weight: bold;" colspan="2">Tax</td>
+      <td>8%</td>
+      <td>$8.80</td>
+    </tr>
+    <tr class="totals grand-total">
+      <td style="font-weight: bold;" colspan="3">Grand Total</td>
+      <td style="font-weight: bold;">$118.80</td>
+    </tr>
+  </table>
+
+  <!-- FORM TABLE -->
+  <form>
+    <table class="forms">
+      <thead>
+        <tr>
+          <th style="text-align: center; background-color:#443627; color: white;">Name</th>
+          <th style="text-align: center;  background-color:#443627; color: white;">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" placeholder="Type your name here"></td>
+        </tr>
+        <tr>
+          <td>Sex:</td>
+          <td>
+            <label><input type="radio" name="sex" value="male"> Male</label><br>
+            <label><input type="radio" name="sex" value="female"> Female</label><br>
+            <label><input type="radio" name="sex" value="other"> Other</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Eye Color:</td>
+          <td>
+            <select>
+              <option value="black">black</option>
+              <option value="blue">blue</option>
+              <option value="green">green</option>
+              <option value="brown">brown</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Check all that applies:</td>
+          <td>
+            <label><input type="checkbox"> Over 6ft. Tall</label><br>
+            <label><input type="checkbox"> Over 200 pounds</label><br>
+            <label><input type="checkbox"> Less than 200 pounds</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Describe your athletic ability:</td>
+          <td><textarea rows="4" cols="30"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="submit-button">
+      <button type="submit">Enter my Information</button>
+    </div>
+  </form>
+
+</body>
+</html>
